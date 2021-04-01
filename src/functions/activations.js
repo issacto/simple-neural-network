@@ -7,7 +7,7 @@ function tanh(x){
 }
 
 function tanh_prime(x){
-    return nj.abs(nj.tanh(a).pow(2).subtract(1))
+    return (nj.tanh(x).pow(2).subtract(1)).multiply(-1)
 }
 
 exports.tanh = tanh
