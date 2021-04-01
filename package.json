@@ -1,0 +1,15 @@
+{
+  "name": "nn-node",
+  "version": "1.0.0",
+  "description": "NN visualization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "numjs": "git+https://github.com/nicolaspanel/numjs.git"
+  }
+}
