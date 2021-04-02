@@ -1,4 +1,8 @@
 const { layer } = require("./layer")
+
+
+
+
 var nj = require('numjs');
 
 class FCLayer extends layer{
@@ -36,6 +40,10 @@ class FCLayer extends layer{
         this.weights = this.weights.subtract(weights_error.multiply(learning_rate))
         this.bias = this.bias.subtract(output_error.multiply(learning_rate))
         return input_error
+    }
+    
+    getWeights(){
+        return this.weights
     }
 }
 
