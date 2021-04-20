@@ -22,18 +22,17 @@ exports.initialize = function(layersArray){
 
 }
 
-
 //train
 exports.train = function(X_train, Y_train,Epochs, Learning_rate){
-    if(net == null){return console.error("Error: Model has not been initialized");}
+    if(net == null){console.error("Error: Model has not been initialized");return null;}
     x_train = []
     y_train = []
     //numpjs convert
     for(var x of X_train){
-        x_train.push(nj.array(x))
+        x_train.push(nj.array([x]))
     }
     for(var y of Y_train){
-        y_train.push(nj.array(y))
+        y_train.push(nj.array([y]))
     }
     //train
     net.use(mse, mse_prime)
@@ -42,14 +41,20 @@ exports.train = function(X_train, Y_train,Epochs, Learning_rate){
 
 //test
 exports.predict = function(X_test){
-    if(net == null){return console.error("Error: Model has not been initialized");}
-    return net.predict(X_test)[0][0]
+    if(net == null){console.error("Error: Model has not been initialized");return null;}
+    return net.predict([X_test])[0][0]
 }
 
 //get weights
 exports.getWeights = function(X_test){
-    if(net == null){return console.error("Error: Model has not been initialized");}
+    if(net == null){console.error("Error: Model has not been initialized");return null;}
     return net.getWeights()
+}
+
+//get weights
+exports.getErrors = function(X_test){
+    if(net == null){console.error("Error: Model has not been initialized");return null;}
+    return net.getErrors()
 }
 
 

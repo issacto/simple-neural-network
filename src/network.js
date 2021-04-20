@@ -5,6 +5,7 @@ class Network{
         this.layers =[];
         this.loss = null;
         this.loss_prime=null;
+        this.errors = []; //erros from epoch
     }
 
     add(layer){
@@ -37,16 +38,12 @@ class Network{
                 //console.log("output")
                 //console.log(output)
             }
-            
-
-            //console.log("outputewrt7890")
-            //console.log(output)
-            //console.log(output)
             result.push(output.selection.data);
         }
         
         return result
     }
+
     fit( x_train, y_train, epochs, learning_rate){
         //console.log("x_train")
         //console.log(x_train)
@@ -86,9 +83,8 @@ class Network{
                 err /= samples;
                 //console.log("epoch",i," ", output.selection.data)
             }
-            
             console.log("epoch",i,err)
-
+            this.errors.push(err)
            // a.reset(a.activeCount+1)*/
         }
         return this
@@ -103,6 +99,11 @@ class Network{
         }
         return weights
     }
+
+    getErrors(){
+        return this.errors
+    }
+
 
 }
 
