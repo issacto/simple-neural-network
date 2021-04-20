@@ -35,6 +35,8 @@ class Network{
                 //console.log("layer")
                 //console.log(layer)
                 output = layer.forward_propagation(output);
+                console.log("output")
+                console.log(output)
             }
             
 
@@ -84,9 +86,9 @@ class Network{
                 err /= samples;
                 //console.log("epoch",i," ", output.selection.data)
             }
-            /*
+            
             console.log("epoch",i,err)
-            a.reset(a.activeCount+1)*/
+           // a.reset(a.activeCount+1)*/
         }
         return this
     }

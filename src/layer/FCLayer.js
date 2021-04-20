@@ -22,12 +22,20 @@ class FCLayer extends layer{
         //console.log("bias")
         //console.log(this.bias)
         this.output = (nj.dot(this.input, this.weights)).add(this.bias)
+        //console.log("ojbfsb")
+        //console.log(this.output)
         //console.log("aefbnljb")
         return this.output
     }
     backward_propagation(output_error,learning_rate){
         
         var input_error = nj.dot(output_error, this.weights.T)
+        /*
+        console.log("here")
+        console.log("output_error")
+        console.log(output_error)
+        console.log("input_error")
+        console.log(input_error)*/
         /*
         console.log("NOTFINISHED ")
         console.log("this.input.T")

@@ -11,6 +11,8 @@ class ActivationLayer extends layer{
     forward_propagation(input_data){
         this.input = input_data;
         this.output =  this.activation(input_data);
+        //console.log("whatsup")
+        //console.log(this.output )
         return this.output;
     }
     backward_propagation(output_error,learning_rate){
