@@ -1,5 +1,4 @@
 var nj = require('numjs');
-const a = require("../index")
 
 class Network{
     constructor(){
@@ -35,8 +34,8 @@ class Network{
                 //console.log("layer")
                 //console.log(layer)
                 output = layer.forward_propagation(output);
-                console.log("output")
-                console.log(output)
+                //console.log("output")
+                //console.log(output)
             }
             
 
@@ -45,6 +44,7 @@ class Network{
             //console.log(output)
             result.push(output.selection.data);
         }
+        
         return result
     }
     fit( x_train, y_train, epochs, learning_rate){
@@ -78,19 +78,30 @@ class Network{
                     /*console.log("iii")
                     console.log(iii)*/
                     error = this.layers[iii].backward_propagation(error, learning_rate)
+                    /*
                     if(this.layers[iii].weights){
                         var weights = this.layers[iii].getWeights()
-                        a.activeCount[iii] = weights
-                    }
+                    }*/
                 }
                 err /= samples;
                 //console.log("epoch",i," ", output.selection.data)
             }
             
             console.log("epoch",i,err)
+
            // a.reset(a.activeCount+1)*/
         }
         return this
+    }
+
+    getWeights(){
+        var weights = []
+        for(var layer of this.layers){
+            if(layer.weights){
+                weights.push(layer.getWeights())
+            }
+        }
+        return weights
     }
 
 }

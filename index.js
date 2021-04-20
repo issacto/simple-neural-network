@@ -1,25 +1,29 @@
 const {tanh, tanh_prime} = require("./src/functions/activations")
 const {mse, mse_prime} = require("./src/functions/losses")
-const {ActivationLayer} = require("./src/layer/ACTLayer")
-const {FCLayer} = require("./src/layer/FCLayer")
+const {ActivationLayer} = require("./src/layer/activation_layer")
+const {FCLayer} = require("./src/layer/fully_connected_layer")
 const {Network} = require("./src/network")
 
 var nj = require('numjs');
 var net = null
 
-
-//Initialize
-exports.initialize = function(){
+//initialize
+exports.initialize = function(layersArray){
     net = new Network()
+    for(var i =0 ; i<layersArray.length-1;i++){
+        net.add(new FCLayer(layersArray[i], layersArray[i+1]))
+        net.add(new ActivationLayer(tanh, tanh_prime))
+    }
+    /*
     net.add(new FCLayer(3, 3))
     net.add(new ActivationLayer(tanh, tanh_prime))
     net.add(new FCLayer(3, 1))
-    net.add(new ActivationLayer(tanh, tanh_prime))
+    net.add(new ActivationLayer(tanh, tanh_prime))*/
 
 }
 
 
-//Train
+//train
 exports.train = function(X_train, Y_train,Epochs, Learning_rate){
     if(net == null){return console.error("Error: Model has not been initialized");}
     x_train = []
@@ -37,15 +41,17 @@ exports.train = function(X_train, Y_train,Epochs, Learning_rate){
 }
 
 //test
-exports.test = function(X_test){
-    return net.predict(X_test)
+exports.predict = function(X_test){
+    if(net == null){return console.error("Error: Model has not been initialized");}
+    return net.predict(X_test)[0][0]
 }
 
-module.exports.activeCount = new Map();
-exports.get = function(){
-    console.log("GET",module.exports.activeCount);
-    return module.exports.activeCount[0].selection.data   
+//get weights
+exports.getWeights = function(X_test){
+    if(net == null){return console.error("Error: Model has not been initialized");}
+    return net.getWeights()
 }
+
 
 
 

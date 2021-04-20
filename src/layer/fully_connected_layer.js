@@ -51,7 +51,19 @@ class FCLayer extends layer{
     }
     
     getWeights(){
-        return this.weights
+        console.log(this.weights)
+        var returnArray = []
+        var tempArray = []
+        for(let i in this.weights.selection.data){
+            tempArray.push(this.weights.selection.data[i]) 
+            if(tempArray.length == this.weights.selection.shape[0]){
+                //console.log("length, ",this.weights.selection.shape[0])
+                returnArray.push(tempArray)
+                tempArray = []
+            }
+
+        }
+        return returnArray
     }
 }
 

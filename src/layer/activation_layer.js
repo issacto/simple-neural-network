@@ -1,5 +1,4 @@
 const {layer} =require("./layer")
-var nj = require('numjs');
 
 class ActivationLayer extends layer{
     
