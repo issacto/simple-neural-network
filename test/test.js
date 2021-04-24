@@ -9,7 +9,6 @@ test('Neural Network Answer Testing', () => {
     var epoch = 100
     var learningRate =0.1
     network.train(trainInputs,trainOutputs, epoch,learningRate)
-    //test answer
     var ans = network.predict(testInputs)
     expect(Number.isFinite(ans)).toBe(true);
     expect(-1<=ans).toBe(true);
@@ -24,7 +23,6 @@ test('Neural Network Error Testing', () => {
     var epoch = 100
     var learningRate =0.1
     network.train(trainInputs,trainOutputs, epoch,learningRate)
-    //test errors
     var errors = network.getErrors()
     expect(Array.isArray(errors)).toBe(true);
 });
