@@ -1,7 +1,7 @@
 # Simple Neural Network
 
 * Lightweight Tanh neural network
-* Includes a callback funtion that returns weights and bias of all node of the model
+* Includes a callback funtion that returns weights and bias of all nodes inside the model
 
 ## On Node.js
 
