@@ -5,8 +5,8 @@ const {FCLayer} = require("./src/layer/fully_connected_layer")
 const {Network} = require("./src/network")
 
 var nj = require('numjs');
-var net = null
 
+var net = null
 
 
 class NeuralNetwork{
