@@ -43,6 +43,10 @@ class NeuralNetwork{
     getWeights(){
         return this.net.getWeights()
     }
+
+    getBias(){
+        return this.net.getBias()
+    }
 }
 
 

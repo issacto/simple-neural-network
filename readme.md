@@ -1,12 +1,12 @@
 # Simple Neural Network
 
-* Lightweight and flexible Tanh neural network
-* Includes a callback funtion that returns weights of all nodes of the model
+* Lightweight Tanh neural network
+* Includes a callback funtion that returns weights and bias of all node of the model
 
 ## On Node.js
 
 ```sh
-npm install x
+npm i @issacto/simple-neural-network
 ```
 ```js
 var NeuralNetwork = require('x').NeuralNetwork;
@@ -47,6 +47,10 @@ var prediction = network.predict(testInputs)
 ### Get Weights
 ```js
 var weights = network.getWeights()
+```
+### Get Bias
+```js
+var bias = network.getBias()
 ```
 
 

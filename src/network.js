@@ -69,6 +69,16 @@ class Network{
         return weights
     }
 
+    getBias(){
+        var bias = []
+        for(var layer of this.layers){
+            if(layer.bias){
+                bias.push(layer.getBias())
+            }
+        }
+        return bias
+    }
+
     getErrors(){
         return this.errors
     }

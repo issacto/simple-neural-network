@@ -41,6 +41,20 @@ class FCLayer extends layer{
         }
         return returnArray
     }
+
+    getBias(){
+        var returnArray = []
+        var tempArray = []
+        for(let i in this.bias.selection.data){
+            tempArray.push(this.bias.selection.data[i]) 
+            if(tempArray.length == this.bias.selection.shape[0]){
+                returnArray.push(tempArray)
+                tempArray = []
+            }
+
+        }
+        return returnArray
+    }
 }
 
 

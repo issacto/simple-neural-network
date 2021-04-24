@@ -1,12 +1,12 @@
 {
-  "name": "nn-node",
+  "name": "@issacto/simple-neural-network",
   "version": "1.0.0",
   "description": "NN visualization",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "author": "",
+  "author": "issacto",
   "license": "ISC",
   "type": "module",
   "dependencies": {
@@ -14,5 +14,16 @@
   },
   "devDependencies": {
     "jest": "^26.6.3"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/issacto/nn-visualize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/issacto/nn-visualize/issues"
+  },
+  "homepage": "https://github.com/issacto/nn-visualize#readme"
 }
