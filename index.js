@@ -9,10 +9,10 @@ var nj = require('numjs');
 
 class NeuralNetwork{
 
-    constructor(layersArray){
+    constructor(layersArray, bias_subtract_value = 0.5, weight_subtract_value = 0.5){
         this.net = new Network()
         for(var i =0 ; i<layersArray.length-1;i++){
-            this.net.add(new FCLayer(layersArray[i], layersArray[i+1]))
+            this.net.add(new FCLayer(layersArray[i], layersArray[i+1],bias_subtract_value,weight_subtract_value))
             this.net.add(new ActivationLayer(tanh, tanh_prime))
         }
     }

@@ -7,11 +7,11 @@ var nj = require('numjs');
 
 class FCLayer extends layer{
 
-    constructor(input_size,output_size ){
+    constructor(input_size,output_size, bias_subtract_value,weight_subtract_value ){
         super();
         console.log("input_size",input_size,"output_size",output_size)
-        this.weights = nj.random([input_size,output_size]).subtract(0.5)
-        this.bias = nj.random([1, output_size]).subtract(0.5)
+        this.weights = nj.random([input_size,output_size]).subtract(weight_subtract_value)
+        this.bias = nj.random([1, output_size]).subtract(bias_subtract_value)
     }
 
     forward_propagation(input_data){

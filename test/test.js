@@ -27,10 +27,22 @@ test('Neural Network Error Testing', () => {
 });
 
 
-test('Neural Network Error Testing', () => {
+test('Neural Network Weights Testing', () => {
     trainInputs =[[1,0,0],[1,1,1],[1,0,1],[1,1,0],[2,1,0],[1,1,0]]
     trainOutputs =[0,1,1,0,0,0]
     var network = new NeuralNetwork([3,3,3,1])
+    var epoch = 100
+    var learningRate =0.1
+    network.train(trainInputs,trainOutputs, epoch,learningRate)
+    var weights = network.getWeights()
+    expect(Array.isArray(weights)).toBe(true);
+});
+
+
+test('Neural Network Constructor Testing', () => {
+    trainInputs =[[1,0,0],[1,1,1],[1,0,1],[1,1,0],[2,1,0],[1,1,0]]
+    trainOutputs =[0,1,1,0,0,0]
+    var network = new NeuralNetwork([3,3,3,1],0.6,0.6)
     var epoch = 100
     var learningRate =0.1
     network.train(trainInputs,trainOutputs, epoch,learningRate)

@@ -18,7 +18,14 @@ var NeuralNetwork = require('x').NeuralNetwork;
 ```js
 //first index is the input size
 //last index, the output layer, should always equal one
-var network = new NeuralNetwork([3,3,3,1])    
+var network = new NeuralNetwork([3,3,3,1])   
+```
+* Default counter value for bias and weights initilization values are 0.5.
+* Change it by adding the corresponding paraemters
+```js
+//Counter value for bias is 0.6
+//Counter value for weight is 0.7
+var network = new NeuralNetwork([input_size,...,1], 0.6, 0.7)   
 ```
 ### Train 
 ```js
