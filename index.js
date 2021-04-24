@@ -6,21 +6,18 @@ const {Network} = require("./src/network")
 
 var nj = require('numjs');
 
-var net = null
-
 
 class NeuralNetwork{
 
     constructor(layersArray){
-        net = new Network()
+        this.net = new Network()
         for(var i =0 ; i<layersArray.length-1;i++){
-            net.add(new FCLayer(layersArray[i], layersArray[i+1]))
-            net.add(new ActivationLayer(tanh, tanh_prime))
+            this.net.add(new FCLayer(layersArray[i], layersArray[i+1]))
+            this.net.add(new ActivationLayer(tanh, tanh_prime))
         }
     }
 
     train(X_train, Y_train,Epochs, Learning_rate){
-        if(net == null){console.error("Error: Model has not been initialized");return null;}
         var x_train = []
         var y_train = []
         //numpjs convert
@@ -31,23 +28,20 @@ class NeuralNetwork{
             y_train.push(nj.array([[y]]))
         }
         //train
-        net.use(mse, mse_prime)
-        net.fit(x_train, y_train, Epochs,Learning_rate)
+        this.net.use(mse, mse_prime)
+        this.net.fit(x_train, y_train, Epochs,Learning_rate)
     }
 
     getErrors(X_test){
-        if(net == null){console.error("Error: Model has not been initialized");return null;}
-        return net.getErrors()
+        return this.net.getErrors()
     }
 
     predict(X_test){
-        if(net == null){console.error("Error: Model has not been initialized");return null;}
-        return net.predict([X_test])[0][0]
+        return this.net.predict([X_test])[0][0]
     }
 
     getWeights(){
-        if(net == null){console.error("Error: Model has not been initialized");return null;}
-        return net.getWeights()
+        return this.net.getWeights()
     }
 }
 
