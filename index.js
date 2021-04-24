@@ -45,7 +45,7 @@ class NeuralNetwork{
         return net.predict([X_test])[0][0]
     }
 
-    getWeights(X_test){
+    getWeights(){
         if(net == null){console.error("Error: Model has not been initialized");return null;}
         return net.getWeights()
     }
