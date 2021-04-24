@@ -1,6 +1,7 @@
 var nj = require('numjs');
 
 class Network{
+    
     constructor(){
         this.layers =[];
         this.loss = null;

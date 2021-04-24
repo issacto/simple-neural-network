@@ -1,7 +1,6 @@
 
 var nj = require('numjs');
 
-
 function tanh(x){
     return nj.tanh(x)
 }
