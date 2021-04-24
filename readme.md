@@ -1,8 +1,7 @@
 # Simple neuralnetwork
 
-```
-```
-return nodes in a clearer way
+* Light Weight
+* Contains a callback funtion that returns all details of layers and nodes of the model
 
 ### on node.js
 
