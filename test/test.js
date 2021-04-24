@@ -16,7 +16,7 @@ test('Neural Network Answer Testing', () => {
     expect(ans<=1).toBe(true);
 });
 
-test('Neural Network Errors Testing', () => {
+test('Neural Network Error Testing', () => {
     trainInputs =[[1,0,0],[1,1,1],[1,0,1],[1,1,0],[2,1,0],[1,1,0]]
     trainOutputs =[0,1,1,0,0,0]
     testInputs =[[1,0,0]]
