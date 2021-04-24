@@ -1,7 +1,7 @@
 # Simple Neural Network
 
-* Light Weight
-* Includes a callback funtion that returns details of all layers and all nodes of the model
+* Lightweight and flexible Tanh neural network
+* Includes a callback funtion that returns weights of all nodes of the model
 
 ## On Node.js
 
@@ -10,15 +10,14 @@ npm install x
 ```
 ```js
 var NeuralNetwork = require('x').NeuralNetwork;
-
 ```
 
 ## Basics
 
 ### Create
 ```js
-    //first index, input layer
-    //last index, the output layer should be equal to one in most of the cases
+    //first index is the input size
+    //last index, the output layer, should always equal one
     var network = new NeuralNetwork([3,3,3,1])    
 ```
 ### Train 
@@ -36,7 +35,7 @@ var NeuralNetwork = require('x').NeuralNetwork;
 ### Predict
 ```js
     predictInput =[[1,0,0]] 
-    x.predict(testInputs)
+    var prediction = network.predict(testInputs)
 ```
 ### Get Weights
 ```js
@@ -45,3 +44,5 @@ var NeuralNetwork = require('x').NeuralNetwork;
 
 
 ## Reference
+
+1. https://towardsdatascience.com/math-neural-network-from-scratch-in-python-d6da9f29ce65
