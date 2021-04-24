@@ -17,27 +17,27 @@ class NeuralNetwork{
         }
     }
 
-    train(X_train, Y_train,Epochs, Learning_rate){
+    train(xTrain, yTrain,epochs, learningRate){
         var x_train = []
         var y_train = []
         //numpjs convert
-        for(var x of X_train){
+        for(var x of xTrain){
             x_train.push(nj.array([x]))
         }
-        for(var y of Y_train){
+        for(var y of yTrain){
             y_train.push(nj.array([[y]]))
         }
         //train
         this.net.use(mse, mse_prime)
-        this.net.fit(x_train, y_train, Epochs,Learning_rate)
+        this.net.fit(x_train, y_train, epochs,learningRate)
     }
 
-    getErrors(X_test){
+    getErrors(){
         return this.net.getErrors()
     }
 
-    predict(X_test){
-        return this.net.predict([X_test])[0][0]
+    predict(input_data){
+        return this.net.predict([input_data])[0][0]
     }
 
     getWeights(){
